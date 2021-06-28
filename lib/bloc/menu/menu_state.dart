@@ -11,8 +11,9 @@ class MenuLoading extends MenuState {}
 
 class MenuSuccess extends MenuState {
   final int type;
+  final String title;
 
-  MenuSuccess({required this.type});
+  MenuSuccess({required this.type,required this.title});
 }
 
 class MenuFailure extends MenuState {

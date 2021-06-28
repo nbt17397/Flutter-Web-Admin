@@ -2,13 +2,16 @@ import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 
 class Header extends StatelessWidget {
+  final String title;
   const Header({
     Key? key,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -22,8 +25,9 @@ class Header extends StatelessWidget {
           ),
         if (!Responsive.isMobile(context))
           Text(
-            "Dashboard",
-            style: Theme.of(context).textTheme.headline6,
+            title,
+            style: GoogleFonts.poppins(
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
@@ -42,7 +46,7 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: defaultPadding),
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       padding: EdgeInsets.symmetric(
         horizontal: defaultPadding,
         vertical: defaultPadding / 2,
@@ -62,7 +66,10 @@ class ProfileCard extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              child: Text("Angelina Joli"),
+              child: Text(
+                "Angelina Joli",
+                style: GoogleFonts.poppins(color: Colors.white),
+              ),
             ),
           Icon(Icons.keyboard_arrow_down),
         ],

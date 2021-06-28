@@ -7,5 +7,6 @@ class MenuEvent extends Equatable {
 
 class DrawerEvent extends MenuEvent {
   final int type;
-  DrawerEvent({required this.type});
+  final String title;
+  DrawerEvent({required this.type,required this.title});
 }

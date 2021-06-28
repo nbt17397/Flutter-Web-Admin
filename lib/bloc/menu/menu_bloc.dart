@@ -9,15 +9,13 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
   Stream<MenuState> mapEventToState(MenuEvent event) async* {
     if (event is DrawerEvent) {
       yield MenuLoading();
-      print("Loading");
       try {
         await Future.delayed(
             Duration(
               milliseconds: 300,
             ),
             () {});
-        yield MenuSuccess(type: event.type);
-        print("Loaded");
+        yield MenuSuccess(type: event.type,title: event.title);
       } catch (e, s) {
         print(e);
         print(s);

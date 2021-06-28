@@ -18,11 +18,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Admin Panel',
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
+        // textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+        //     .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
+        dataTableTheme: DataTableThemeData(
+          decoration: BoxDecoration(color: Colors.white),
+          headingRowColor: MaterialStateProperty.resolveWith((Set states) {
+            if (states.contains(MaterialState.selected))
+              return Theme.of(context).colorScheme.primary.withOpacity(0.08);
+            return Colors.blue;
+          }),
+          dataTextStyle: GoogleFonts.poppins(
+              color: Colors.black, fontWeight: FontWeight.w600),
+          headingTextStyle: GoogleFonts.poppins(
+              color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       home: MultiProvider(
         providers: [

@@ -1,10 +1,13 @@
 import 'package:admin/bloc/menu/menu.dart';
 import 'package:admin/common/my_progress_loading.dart';
+import 'package:admin/constants.dart';
 import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/screens/dashboard/components/header.dart';
 import 'package:admin/screens/dashboard/dashboard_screen.dart';
+import 'package:admin/screens/export_excel.dart';
+import 'package:admin/screens/table_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'components/side_menu.dart';
 
@@ -17,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<MenuBloc>().add(DrawerEvent(type: 0));
+    context.read<MenuBloc>().add(DrawerEvent(type: 2, title: 'Dashboard'));
   }
 
   @override
@@ -42,15 +45,15 @@ class _MainScreenState extends State<MainScreen> {
                   return Builder(builder: (context) {
                     switch (state.type) {
                       case 1:
-                        return Center(child: Text('11111'));
+                        return DashboardScreen(title: state.title);
+                      case 11:
+                        return ExportExcel(title: state.title);
                       case 2:
-                        return Center(child: Text('22222'));
+                        return TableDataScreen(title: state.title);
                       case 3:
-                        return Center(
-                          child: Text('3333'),
-                        );
+                        return ExportExcel(title: state.title);
                       default:
-                        return DashboardScreen();
+                        return DashboardScreen(title: state.title);
                     }
                   });
                 }
