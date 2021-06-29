@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:html' as html;
-import 'dart:io';
 import 'dart:typed_data';
-
+import 'package:asuka/asuka.dart' as asuka;
 import 'package:admin/constants.dart';
 import 'package:admin/screens/dashboard/components/header.dart';
 import 'package:file_picker/file_picker.dart';
@@ -72,7 +70,12 @@ class _ExportExcelState extends State<ExportExcel> {
                 },
               ),
               SizedBox(height: 20),
-              name != "" ? Text(name,style: TextStyle(color: Colors.white),): SizedBox(),
+              name != ""
+                  ? Text(
+                      name,
+                      style: TextStyle(color: Colors.white),
+                    )
+                  : SizedBox(),
               SizedBox(height: 20),
               MaterialButton(
                 height: 40,
@@ -82,7 +85,17 @@ class _ExportExcelState extends State<ExportExcel> {
                 },
                 color: Colors.blue,
                 child: Text('Export excel'),
-              )
+              ),
+              MaterialButton(
+                height: 40,
+                minWidth: 200,
+                onPressed: () {
+                  asuka.showBottomSheet((p0) => Container(height: 100,color: Colors.blue,));
+                 
+                },
+                color: Colors.green,
+                child: Text('Asuka'),
+              ),
             ],
           ),
         ),

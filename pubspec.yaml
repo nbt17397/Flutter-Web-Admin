@@ -42,6 +42,8 @@ dependencies:
   expansion_tile_card: ^2.0.0
   syncfusion_flutter_xlsio: ^19.1.69-beta
   file_picker: ^3.0.2+2
+  asuka: ^2.0.0-nullsafety.2
+  flutter_modular: ^3.3.0
 
 dev_dependencies:
   flutter_test:

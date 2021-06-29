@@ -1,11 +1,15 @@
-import 'package:admin/bloc/menu/menu.dart';
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/screens/export_excel.dart';
 import 'package:admin/screens/main/main_screen.dart';
+import 'package:asuka/asuka.dart' as asuka;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+import 'bloc/menu/menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: "/",
+      builder: asuka.builder,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Admin Panel',
       theme: ThemeData.light().copyWith(
@@ -48,3 +54,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
